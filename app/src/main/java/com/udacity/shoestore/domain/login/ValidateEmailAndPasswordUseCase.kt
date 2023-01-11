@@ -1,4 +1,4 @@
-package com.udacity.shoestore.domain
+package com.udacity.shoestore.domain.login
 
 import android.content.Context
 import android.util.Patterns
@@ -39,7 +39,7 @@ class ValidateEmailAndPasswordUseCase {
                     "(?=\\S+$)" +           //no white spaces
                     ".{8,}" +               //at least 8 characters
                     "$"
-        );
+        )
         return passwordREGEX.matcher(password).matches()
     }
 }

@@ -42,6 +42,7 @@ class LoginFragment : Fragment() {
                 binding.inputEmail.text.toString().trim(),
                 binding.inputPassword.text.toString().trim(), it.context
             )
+            binding.inputPassword.text.clear()
         }
     }
 }

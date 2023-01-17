@@ -1,18 +1,18 @@
 package com.udacity.shoestore.domain
 
 import android.content.Context
-import android.view.View
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModel
-import androidx.navigation.findNavController
-import com.udacity.shoestore.R
 import com.udacity.shoestore.domain.login.LoginUseCase
 import com.udacity.shoestore.domain.login.RegisterUseCase
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.User
 
 class SharedViewModel : ViewModel() {
     private val userList: MutableList<User> = mutableListOf()
     private val registerUseCase = RegisterUseCase()
     private val loginUseCase = LoginUseCase()
+    private val createCardViewForShoeList = CreateCardViewForShoeList()
 
     fun performLogin(loginEmail: String, loginPassword: String, context: Context): Boolean {
         return loginUseCase(loginEmail, loginPassword, userList, context)
@@ -24,5 +24,8 @@ class SharedViewModel : ViewModel() {
         return true
     }
 
+    fun createCardView(shoe: Shoe, context: Context) : CardView {
+        return createCardViewForShoeList(shoe, context)
+    }
 
 }

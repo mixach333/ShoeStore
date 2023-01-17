@@ -2,4 +2,5 @@
     <string name="app_name">ShoeStore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="instructions_description">This is an Shoe Inventory application for your store. You can simply keep track of your shoes and add new one. You just need to add Shoe Name, Company, Shoe Size and Description. And when you want to check all your shoes again, the recently added shoe will be shown in the list</string>
 </resources>

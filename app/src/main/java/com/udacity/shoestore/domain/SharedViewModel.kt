@@ -1,7 +1,10 @@
 package com.udacity.shoestore.domain
 
 import android.content.Context
+import android.view.View
 import androidx.lifecycle.ViewModel
+import androidx.navigation.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.domain.login.LoginUseCase
 import com.udacity.shoestore.domain.login.RegisterUseCase
 import com.udacity.shoestore.models.User
@@ -20,4 +23,6 @@ class SharedViewModel : ViewModel() {
             userList.add(User(loginEmail, loginPassword))
         return true
     }
+
+
 }

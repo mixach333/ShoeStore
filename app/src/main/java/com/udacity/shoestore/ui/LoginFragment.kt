@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.domain.SharedViewModel

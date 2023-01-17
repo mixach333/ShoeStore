@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
                     binding.inputPassword.text.toString().trim(), it.context
                 )
             ) {
-                it.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+                findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
             }
         }
         binding.actionRegister.setOnClickListener {

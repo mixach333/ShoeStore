@@ -27,7 +27,7 @@ class InstructionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.instructionsStartBtn.setOnClickListener {
-            it.findNavController().navigate(R.id.action_instructionsFragment_to_shoeListingFragment)
+            findNavController().navigate(R.id.action_instructionsFragment_to_shoeListingFragment)
         }
     }
 

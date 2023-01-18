@@ -22,11 +22,14 @@ class ShoeListingFragment : Fragment() {
     ): View {
         _binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_listing, container, false)
-
-        binding.fabAddShoe.setOnClickListener {
-
-        }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.fabAddShoe.setOnClickListener {
+        }
+        sharedViewModel.initializeDefaultListOfShoes(binding)
     }
 
 

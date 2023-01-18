@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.udacity.shoestore.models.Shoe
 
-class CreateCardViewForShoeList {
+class CreateCardViewForShoeListUseCase {
     operator fun invoke(shoe: Shoe, context: Context): CardView {
         val cardView = CardView(context).apply {
             val params = LinearLayout.LayoutParams(

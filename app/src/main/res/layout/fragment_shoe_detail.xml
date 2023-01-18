@@ -1,19 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
     </data>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.ShoeDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/gradient_background">
 
-</FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="6dp"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75">
+
+            <TextView
+                android:id="@+id/header_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Add a new shoe item to your collection"
+                android:textSize="20sp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_top">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_name_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp"
+                app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_bottom"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_top"
+                app:layout_constraintVertical_bias="0.2">
+
+                <EditText
+                    android:id="@+id/shoe_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:hint="Enter shoe name"
+                    android:textSize="20sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_size_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp">
+
+                <EditText
+                    android:id="@+id/shoe_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:hint="Enter shoe size"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/edit_company_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp">
+
+                <EditText
+                    android:id="@+id/shoe_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:hint="Enter shoe manufacturer"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/edit_description_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp">
+
+                <EditText
+                    android:id="@+id/shoe_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:hint="Enter shoe description"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_top">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp">
+
+                <TextView
+                    android:id="@+id/shoe_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Here you should write name for your new shoe. The name should be associated with the official model name of the shoe"
+                    android:textSize="12sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_size_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp">
+
+                <TextView
+                    android:id="@+id/shoe_size_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Here you should enter a size of your shoe, it could be also half the size(44.5 for example)"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_company_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp">
+
+                <TextView
+                    android:id="@+id/shoe_company_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Here you just need to write the manufacturer-company who produced your shoes"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:elevation="6dp"
+                app:cardCornerRadius="6dp">
+
+                <TextView
+                    android:id="@+id/shoe_description_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="And here should be a consize description what are the shoues designed for"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_bottom"
+            android:background="@drawable/round_corners_view"/>
+
+        <Button
+            android:id="@+id/cancel_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_corners_view"
+            android:text="Confirm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+            app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_bottom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

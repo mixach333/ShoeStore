@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListingBinding
 import com.udacity.shoestore.domain.SharedViewModel
@@ -28,6 +29,7 @@ class ShoeListingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fabAddShoe.setOnClickListener {
+            findNavController().navigate(R.id.action_shoeListingFragment_to_shoeDetailFragment)
         }
         sharedViewModel.initializeDefaultListOfShoes(binding)
     }

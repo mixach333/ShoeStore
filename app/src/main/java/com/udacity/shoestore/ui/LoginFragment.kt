@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.domain.SharedViewModel
+import com.udacity.shoestore.models.User
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -32,8 +33,11 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.actionLogin.setOnClickListener {
             if (sharedViewModel.performLogin(
-                    binding.inputEmail.text.toString().trim(),
-                    binding.inputPassword.text.toString().trim(), it.context
+                    User(
+                        binding.inputEmail.text.toString().trim(),
+                        binding.inputPassword.text.toString().trim(),
+                        sharedViewModel.getListOfShoes()
+                    ), it.context
                 )
             ) {
                 findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)

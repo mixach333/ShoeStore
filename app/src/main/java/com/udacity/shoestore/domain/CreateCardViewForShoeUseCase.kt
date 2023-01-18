@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.udacity.shoestore.models.Shoe
 
-class CreateCardViewForShoeListUseCase {
+class CreateCardViewForShoeUseCase {
     operator fun invoke(shoe: Shoe, context: Context): CardView {
         val cardView = CardView(context).apply {
             val params = LinearLayout.LayoutParams(
@@ -36,7 +36,7 @@ class CreateCardViewForShoeListUseCase {
             var result = if (shoe.size % 1 > 0) {
                 shoe.size.toString()
             } else {
-               shoe.size.toInt().toString()
+                shoe.size.toInt().toString()
             }
             text = result
             textSize = 16f

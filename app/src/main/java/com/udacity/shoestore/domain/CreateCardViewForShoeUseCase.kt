@@ -30,7 +30,7 @@ class CreateCardViewForShoeUseCase {
             setPadding(16, 4, 4, 16)
         }
         val textViewName = TextView(context).apply {
-            text = shoe.name
+            text = "Name: ${shoe.name}"
             textSize = 16f
         }
         val textViewSize = TextView(context).apply {
@@ -40,15 +40,15 @@ class CreateCardViewForShoeUseCase {
             } else {
                 shoe.size.toInt().toString()
             }
-            text = result
+            text = "Size: $result"
             textSize = 16f
         }
         val textViewCompany = TextView(context).apply {
-            text = shoe.company
+            text = "Manufacturer: ${shoe.company}"
             textSize = 16f
         }
         val textViewDescription = TextView(context).apply {
-            text = shoe.description
+            text = "Description: ${shoe.description}"
             textSize = 16f
         }
         linearLayout.apply {

@@ -4,7 +4,7 @@ import com.udacity.shoestore.models.Shoe
 
 
 class GenerateListOfShoesUseCase {
-    operator fun invoke(): MutableList<Shoe> = mutableListOf(
+    operator fun invoke(): List<Shoe> = listOf(
         Shoe("Ultra Boost Web DNA", 45.0, "adidas", "Running sneakers"),
         Shoe("4D FWD Pulse", 40.0, "adidas", "Running sneakers"),
         Shoe("Gel-Cumulus 24", 42.5, "Asics", "Running sneakers"),

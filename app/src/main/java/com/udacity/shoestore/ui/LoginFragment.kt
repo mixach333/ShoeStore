@@ -35,8 +35,7 @@ class LoginFragment : Fragment() {
             if (sharedViewModel.performLogin(
                     User(
                         binding.inputEmail.text.toString().trim(),
-                        binding.inputPassword.text.toString().trim(),
-                        sharedViewModel.getListOfShoes()
+                        binding.inputPassword.text.toString().trim()
                     ), it.context
                 )
             ) {

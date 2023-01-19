@@ -1,14 +1,12 @@
 package com.udacity.shoestore.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
-import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -24,15 +22,14 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
+        //return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
         return navController.navigateUp()
-                //|| super.onSupportNavigateUp()
+        //        || super.onSupportNavigateUp()
     }
 
 
-    override fun onBackPressed() {
-        onSupportNavigateUp() || return super.onBackPressed()
-    }
 }

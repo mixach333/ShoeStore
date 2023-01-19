@@ -43,14 +43,11 @@ class SharedViewModel : ViewModel() {
         return true
     }
 
-    private fun createCardView(shoe: Shoe, context: Context): CardView {
-        return createCardViewForShoeUseCase(shoe, context)
-    }
 
     fun initializeListOfShoes(binding: FragmentShoeListingBinding) : List<CardView> {
         val cards = mutableListOf<CardView>()
         _shoeList.value?.forEach {
-            cards.add(createCardView(it, binding.root.context))
+            cards.add(createCardViewForShoeUseCase(it, binding.root.context))
         }
         return cards
     }

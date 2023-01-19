@@ -9,37 +9,38 @@
     android:orientation="vertical"
     tools:context=".ui.WelcomeFragment"
     android:gravity="center_horizontal"
-    android:padding="15dp"
+    android:padding="32dp"
     android:background="@drawable/gradient_background">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to the app Shoe Store!"
+        android:text="@string/welcome_text"
         android:textSize="40sp"
         android:gravity="center_horizontal"
         android:layout_margin="20dp"/>
 
     <TextView
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:padding="10dp"
         android:gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Here you can keep track of your shoes listed, add new shoes and check the description of each shoe. This project is developed during Udacity Android course, MVVM and Navigation components"/>
+        android:text="@string/about_app"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+
     <Button
         android:id="@+id/navigateToInstructionsButton"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GO TO INSTRUCTIONS"
-        android:background="@drawable/round_corners_view"/>
+        android:layout_margin="32dp"
+        android:background="@drawable/round_corners_view"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/go_to_instructions_btn"
+        android:textSize="16sp" />
 </LinearLayout>
 </layout>

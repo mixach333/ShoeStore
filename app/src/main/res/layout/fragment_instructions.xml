@@ -23,7 +23,7 @@
             android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="How to use this app?"
+            android:text="@string/how_to_use_this_app"
             android:textSize="30sp" />
     </androidx.cardview.widget.CardView>
     <View
@@ -41,14 +41,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+
     <Button
         android:id="@+id/instructions_start_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:layout_margin="32dp"
-        android:text="Start using app"
-        android:textSize="16sp"
         android:background="@drawable/round_corners_view"
-        />
+        android:text="@string/start_using_app"
+        android:textSize="16sp" />
 </LinearLayout>
 </layout>

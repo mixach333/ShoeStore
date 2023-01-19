@@ -22,7 +22,7 @@
             <LinearLayout
                 android:id="@+id/linear_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add"
             android:scaleType="centerCrop"
-            android:contentDescription="Add new shoe button"
+            android:contentDescription="@string/add_new_shoe_fab"
             android:elevation="16dp"/>
     </LinearLayout>
 </layout>

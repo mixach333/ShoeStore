@@ -43,4 +43,12 @@ class SharedViewModel : ViewModel() {
     }
 
     fun getListOfShoes() = shoeList
+
+    fun addShoe(shoe: Shoe) : Boolean{
+        if(shoe.name.isNotBlank()&& shoe.size in 1.0..60.0 &&shoe.company.isNotBlank()&&shoe.description.isNotBlank()) {
+            shoeList.add(shoe)
+            return true
+        }
+        return false
+    }
 }

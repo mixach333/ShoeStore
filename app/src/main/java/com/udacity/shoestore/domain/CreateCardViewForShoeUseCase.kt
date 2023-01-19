@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.udacity.shoestore.models.Shoe
 
@@ -35,6 +36,7 @@ class CreateCardViewForShoeUseCase {
         val textViewSize = TextView(context).apply {
             var result = if (shoe.size % 1 > 0) {
                 shoe.size.toString()
+
             } else {
                 shoe.size.toInt().toString()
             }

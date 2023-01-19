@@ -46,13 +46,14 @@ class ShoeListingFragment : Fragment() {
                 setHomeButtonEnabled(true)
             }
         }
-        val cards = sharedViewModel.initializeListOfShoes(binding)
-        cards.forEach {
-            binding.linearLayout.addView(it)
-        }
+
 
         sharedViewModel.shoeList.observe(viewLifecycleOwner){
-            //binding.linearLayout.addView(sharedViewModel.createCardView(it.last(), requireContext()))
+            //binding.linearLayout.addView(sharedViewModel.createCardView(it[0], requireContext()))
+            val cards = sharedViewModel.initializeListOfShoes(binding)
+            cards.forEach {
+                binding.linearLayout.addView(it)
+            }
         }
     }
 

@@ -29,6 +29,9 @@ class SharedViewModel : ViewModel() {
     private val userList: MutableList<User> = mutableListOf(
         User("test@gmail.com", "11111aA@")
     )
+    init {
+        _shoeList.value = defaultShoeList
+    }
 
     fun performLogin(user: User, context: Context): Boolean {
         return loginUseCase(user, userList, context)

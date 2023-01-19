@@ -23,8 +23,7 @@ class SharedViewModel : ViewModel() {
     private val _shoeList = MutableLiveData<List<Shoe>>()
     val shoeList : LiveData<List<Shoe>> get() = _shoeList
 
-    private val _isUserLoggedIn = MutableLiveData<Boolean>()
-    val isUserLoggedIn : LiveData<Boolean> get() = _isUserLoggedIn
+    val isUserLoggedIn = MutableLiveData(false)
 
     private val userList: MutableList<User> = mutableListOf(
         User("test@gmail.com", "11111aA@")
@@ -34,7 +33,8 @@ class SharedViewModel : ViewModel() {
     }
 
     fun performLogin(user: User, context: Context): Boolean {
-        return loginUseCase(user, userList, context)
+        isUserLoggedIn.value = loginUseCase(user, userList, context)
+        return isUserLoggedIn.value!!
     }
 
     fun performRegistration(loginEmail: String, loginPassword: String, context: Context): Boolean {
@@ -43,7 +43,7 @@ class SharedViewModel : ViewModel() {
         return true
     }
 
-    fun createCardView(shoe: Shoe, context: Context): CardView {
+    private fun createCardView(shoe: Shoe, context: Context): CardView {
         return createCardViewForShoeUseCase(shoe, context)
     }
 

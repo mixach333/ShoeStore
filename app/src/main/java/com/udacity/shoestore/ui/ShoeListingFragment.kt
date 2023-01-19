@@ -1,15 +1,13 @@
 package com.udacity.shoestore.ui
 
-import android.R
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListingBinding
 import com.udacity.shoestore.domain.SharedViewModel
 
@@ -25,10 +23,11 @@ class ShoeListingFragment : Fragment() {
         _binding =
             DataBindingUtil.inflate(
                 inflater,
-                com.udacity.shoestore.R.layout.fragment_shoe_listing,
+                R.layout.fragment_shoe_listing,
                 container,
                 false
             )
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -41,21 +40,35 @@ class ShoeListingFragment : Fragment() {
         }
         binding.fabAddShoe.setOnClickListener {
             findNavController().navigate(com.udacity.shoestore.R.id.action_shoeListingFragment_to_shoeDetailFragment)
-            supportActionBar?.apply{
+            supportActionBar?.apply {
                 setDisplayHomeAsUpEnabled(true)
                 setHomeButtonEnabled(true)
             }
         }
 
 
-        sharedViewModel.shoeList.observe(viewLifecycleOwner){
-            //binding.linearLayout.addView(sharedViewModel.createCardView(it[0], requireContext()))
+        sharedViewModel.shoeList.observe(viewLifecycleOwner) {
             val cards = sharedViewModel.initializeListOfShoes(binding)
             cards.forEach {
                 binding.linearLayout.addView(it)
             }
         }
+
+        sharedViewModel.isUserLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
+            if (!loggedIn) findNavController().navigate(R.id.action_shoeListingFragment_to_loginFragment)
+        }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.logout_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.logout -> sharedViewModel.isUserLoggedIn.value = false
+//        }
+        if (item.itemId == R.id.logout) sharedViewModel.isUserLoggedIn.value = false
+        return super.onOptionsItemSelected(item)
+    }
 }

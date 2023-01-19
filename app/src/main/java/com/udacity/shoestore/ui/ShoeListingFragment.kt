@@ -39,7 +39,7 @@ class ShoeListingFragment : Fragment() {
 
         }
         binding.fabAddShoe.setOnClickListener {
-            findNavController().navigate(com.udacity.shoestore.R.id.action_shoeListingFragment_to_shoeDetailFragment)
+            findNavController().navigate(R.id.action_shoeListingFragment_to_shoeDetailFragment)
             supportActionBar?.apply {
                 setDisplayHomeAsUpEnabled(true)
                 setHomeButtonEnabled(true)
@@ -48,9 +48,11 @@ class ShoeListingFragment : Fragment() {
 
 
         sharedViewModel.shoeList.observe(viewLifecycleOwner) {
-            val cards = sharedViewModel.initializeListOfShoes(binding)
-            cards.forEach {
-                binding.linearLayout.addView(it)
+            if(sharedViewModel.isUserLoggedIn.value!!) {
+                val cards = sharedViewModel.initializeListOfShoes(binding)
+                cards.forEach {
+                    binding.linearLayout.addView(it)
+                }
             }
         }
 
@@ -65,10 +67,7 @@ class ShoeListingFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.logout -> sharedViewModel.isUserLoggedIn.value = false
-//        }
-        if (item.itemId == R.id.logout) sharedViewModel.isUserLoggedIn.value = false
+        if (item.itemId == R.id.logout) sharedViewModel.onUserLoggedOut()
         return super.onOptionsItemSelected(item)
     }
 }

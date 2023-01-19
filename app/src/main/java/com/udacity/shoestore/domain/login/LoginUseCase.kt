@@ -5,12 +5,11 @@ import android.widget.Toast
 import com.udacity.shoestore.models.User
 
 class LoginUseCase {
-    operator fun invoke(user: User, userList: List<User>, context: Context): Boolean {
-        return if (userList.contains(user)) {
-            true
-        } else {
+    operator fun invoke(inputEmail: String, inputPassword: String, userList: List<User>, context: Context): Pair<User?, Boolean> {
+        userList.forEach() {
+            if(it.email==inputEmail&&it.password==inputPassword) return Pair(it, true)
+        }
             Toast.makeText(context, "Incorrect email or password", Toast.LENGTH_SHORT).show()
-            false
+            return Pair(null, false)
         }
     }
-}

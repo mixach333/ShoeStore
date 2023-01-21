@@ -1,5 +1,6 @@
 package com.udacity.shoestore.ui
 
+//TODO remove unused import/imports
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

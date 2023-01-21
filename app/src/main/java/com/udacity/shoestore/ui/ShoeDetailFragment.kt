@@ -52,5 +52,5 @@ class ShoeDetailFragment : Fragment() {
     private fun navigateBackToListing() {
         findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListingFragment)
     }
-
+    //TODO I've noticed you are cleaning up your binding variable in WelcomeFragment#onDestroyView, so keep the same logic everywhere
 }

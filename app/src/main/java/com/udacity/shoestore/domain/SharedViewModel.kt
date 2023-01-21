@@ -1,5 +1,6 @@
 package com.udacity.shoestore.domain
 
+//TODO remove unused import/imports
 import android.content.Context
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.LiveData
@@ -21,6 +22,8 @@ class SharedViewModel : ViewModel() {
     private val defaultShoeList: List<Shoe> = generateListOfShoesUseCase()
 
     private val _currentUser = MutableLiveData<User>()
+    //TODO according to the logic currentUser should be used for read access, but the property
+    // is never used
     val currentUser: LiveData<User> get() = _currentUser
 
     private val _shoeList = MutableLiveData<List<Shoe>>()

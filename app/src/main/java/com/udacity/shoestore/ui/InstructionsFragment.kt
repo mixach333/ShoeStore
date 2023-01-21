@@ -1,5 +1,6 @@
 package com.udacity.shoestore.ui
 
+//TODO remove unused import/imports
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,5 +31,5 @@ class InstructionsFragment : Fragment() {
             findNavController().navigate(R.id.action_instructionsFragment_to_shoeListingFragment)
         }
     }
-
+    //TODO I've noticed you are cleaning up your binding variable in WelcomeFragment#onDestroyView, so keep the same logic everywhere
 }

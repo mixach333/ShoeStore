@@ -70,4 +70,5 @@ class ShoeListingFragment : Fragment() {
         if (item.itemId == R.id.logout) sharedViewModel.onUserLoggedOut()
         return super.onOptionsItemSelected(item)
     }
+    //TODO I've noticed you are cleaning up your binding variable in WelcomeFragment#onDestroyView, so keep the same logic everywhere
 }

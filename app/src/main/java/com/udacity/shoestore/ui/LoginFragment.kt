@@ -28,6 +28,19 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //TODO in such cases 'with()' kotlin scope function could be useful in order to:
+        // - make code cleaner/ more readable
+        // - one logic in one place
+        // - easier migration from kotlin synthetics. Imagine you have a lot of kotlin synthetics
+        // titleTextView, subtitleTextView, bodyTextView etc. so with bindings probably you will add
+        // some binding variable everywhere binding.titleTextView, binding.subtitleTextView, binding.bodyTextView etc.
+        // but you can easily simplify that code just by wrapping all bindings using with() scope function
+        // with(binding) {
+        //  titleTextView.text = ...
+        //  subtitleTextView.text = ...
+        //  bodyTextView.text = ...
+        // }
+
         binding.actionLogin.setOnClickListener {
             if (sharedViewModel.performLogin(
                     binding.inputEmail.text.toString().trim(),
@@ -46,4 +59,5 @@ class LoginFragment : Fragment() {
             binding.inputPassword.text.clear()
         }
     }
+    //TODO I've noticed you are cleaning up your binding variable in WelcomeFragment#onDestroyView, so keep the same logic everywhere
 }

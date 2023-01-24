@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
+import com.udacity.shoestore.R
 import com.udacity.shoestore.models.Shoe
 
 class CreateCardViewForShoeUseCase {
@@ -30,25 +30,25 @@ class CreateCardViewForShoeUseCase {
             setPadding(16, 4, 4, 16)
         }
         val textViewName = TextView(context).apply {
-            text = "Name: ${shoe.name}"
+            text = context.getString(R.string.name, shoe.name)
             textSize = 16f
         }
         val textViewSize = TextView(context).apply {
-            var result = if (shoe.size % 1 > 0) {
+            val result = if (shoe.size % 1 > 0) {
                 shoe.size.toString()
 
             } else {
                 shoe.size.toInt().toString()
             }
-            text = "Size: $result"
+            text = context.getString(R.string.size, result)
             textSize = 16f
         }
         val textViewCompany = TextView(context).apply {
-            text = "Manufacturer: ${shoe.company}"
+            text = context.getString(R.string.company, shoe.company)
             textSize = 16f
         }
         val textViewDescription = TextView(context).apply {
-            text = "Description: ${shoe.description}"
+            text = context.getString(R.string.description, shoe.description)
             textSize = 16f
         }
         linearLayout.apply {

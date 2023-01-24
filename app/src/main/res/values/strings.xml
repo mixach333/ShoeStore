@@ -26,4 +26,8 @@
     <string name="and_here_should_be_a_concise_description_what_are_the_shoues_designed_for">And here should be a concise description what are the shoues designed for</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
+    <string name="name">Name: %1$s</string>
+    <string name="size">Size: %1$s</string>
+    <string name="company">Company: %1$s</string>
+    <string name="description">Description: %1$s</string>
 </resources>

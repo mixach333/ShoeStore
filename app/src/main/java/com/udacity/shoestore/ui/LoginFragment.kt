@@ -28,22 +28,30 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.actionLogin.setOnClickListener {
-            if (sharedViewModel.performLogin(
-                    binding.inputEmail.text.toString().trim(),
-                    binding.inputPassword.text.toString().trim(),
-                    it.context
+        with(binding) {
+            actionLogin.setOnClickListener {
+                if (sharedViewModel.performLogin(
+                        inputEmail.text.toString().trim(),
+                        inputPassword.text.toString().trim(),
+                        it.context
+                    )
+                ) {
+                    findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+                }
+            }
+            actionRegister.setOnClickListener {
+                sharedViewModel.performRegistration(
+                    inputEmail.text.toString().trim(),
+                    inputPassword.text.toString().trim(), it.context
                 )
-            ) {
-                findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+                inputPassword.text.clear()
             }
         }
-        binding.actionRegister.setOnClickListener {
-            sharedViewModel.performRegistration(
-                binding.inputEmail.text.toString().trim(),
-                binding.inputPassword.text.toString().trim(), it.context
-            )
-            binding.inputPassword.text.clear()
-        }
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

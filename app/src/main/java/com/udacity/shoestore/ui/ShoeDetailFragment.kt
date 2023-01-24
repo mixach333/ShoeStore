@@ -53,4 +53,9 @@ class ShoeDetailFragment : Fragment() {
         findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListingFragment)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

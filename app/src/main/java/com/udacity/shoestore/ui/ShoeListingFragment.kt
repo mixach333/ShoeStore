@@ -48,7 +48,7 @@ class ShoeListingFragment : Fragment() {
 
 
         sharedViewModel.shoeList.observe(viewLifecycleOwner) {
-            if(sharedViewModel.isUserLoggedIn.value!!) {
+            if (sharedViewModel.isUserLoggedIn.value!!) {
                 val cards = sharedViewModel.initializeListOfShoes(binding)
                 cards.forEach {
                     binding.linearLayout.addView(it)
@@ -69,5 +69,10 @@ class ShoeListingFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.logout) sharedViewModel.onUserLoggedOut()
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

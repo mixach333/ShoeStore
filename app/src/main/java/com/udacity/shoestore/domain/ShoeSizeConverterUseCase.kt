@@ -1,6 +1,5 @@
 package com.udacity.shoestore.domain
 
-import androidx.core.text.isDigitsOnly
 import androidx.databinding.InverseMethod
 
 object ShoeSizeConverterUseCase {

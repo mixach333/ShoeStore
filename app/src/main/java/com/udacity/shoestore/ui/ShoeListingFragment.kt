@@ -33,7 +33,7 @@ class ShoeListingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val supportActionBar = (activity as AppCompatActivity?)!!.supportActionBar?.apply {
+        val supportActionBar = (activity as AppCompatActivity).supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(false)
             setHomeButtonEnabled(false)
 
@@ -48,7 +48,7 @@ class ShoeListingFragment : Fragment() {
 
 
         sharedViewModel.shoeList.observe(viewLifecycleOwner) {
-            if (sharedViewModel.isUserLoggedIn.value!!) {
+            if (sharedViewModel.isUserLoggedIn.value==true) {
                 val cards = sharedViewModel.initializeListOfShoes(binding)
                 cards.forEach {
                     binding.linearLayout.addView(it)

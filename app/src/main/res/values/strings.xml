@@ -23,7 +23,7 @@
     <string name="here_you_should_write_name_for_your_new_shoe_the_name_should_be_associated_with_the_official_model_name_of_the_shoe">Here you should write name for your new shoe. The name should be associated with the official model name of the shoe</string>
     <string name="here_you_should_enter_a_size_of_your_shoe_it_could_be_also_half_the_size_44_5_for_example">Here you should enter a size of your shoe, it could be also half the size(44.5 for example)</string>
     <string name="here_you_just_need_to_write_the_manufacturer_company_who_produced_your_shoes">Here you just need to write the manufacturer-company who produced your shoes</string>
-    <string name="and_here_should_be_a_concise_description_what_are_the_shoues_designed_for">And here should be a concise description what are the shoues designed for</string>
+    <string name="and_here_should_be_a_concise_description_what_are_the_shoes_designed_for">And here should be a concise description what are the shoes designed for</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="name">Name: %1$s</string>

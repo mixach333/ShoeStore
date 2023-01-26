@@ -258,7 +258,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center_horizontal"
-                    android:text="@string/and_here_should_be_a_concise_description_what_are_the_shoues_designed_for"
+                    android:text="@string/and_here_should_be_a_concise_description_what_are_the_shoes_designed_for"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>

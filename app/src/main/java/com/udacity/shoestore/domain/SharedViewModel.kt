@@ -37,7 +37,7 @@ class SharedViewModel : ViewModel() {
     fun performLogin(inputEmail: String, inputPassword: String, context: Context): Boolean {
         val validationPair = loginUseCase(inputEmail, inputPassword, userList, context)
         _isUserLoggedIn.value = validationPair.second
-        if (isUserLoggedIn.value!!) {
+        if (isUserLoggedIn.value==true) {
             _currentUser = validationPair.first
             _shoeList.value = _currentUser?.shoeList
         }

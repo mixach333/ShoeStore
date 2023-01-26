@@ -1,78 +1,81 @@
 # The Shoe Store
 
-This project will consist of five screens. You don't have to create a shoe store, you can use any other item as long as you create the following screens. You will be creating:
+A small project to keep track of your shoes, where you keep its list and can add new shoes. At the start, the app populates the default shoe list for each user.
 
-1. Login screen: Email and password fields and labels plus create and login buttons
-2. Welcome onboarding screen
-3. Instructions onboarding screen
-4. Shoe Listing screen
-5. Shoe Detail screen for adding a new shoe
+##
 
-## Getting Started
 
-Open the starter project in the latest stable version of Android Studio.
+<img src="https://img.shields.io/badge/kotlin-1C2149?style=for-the-badge&logo=kotlin&logoColor=orange"/>  <img src="https://img.shields.io/badge/Clean-Architecture-1C2149?style=for-the-badge&logo=kotlin&logoColor=orange"/>  <img src="https://img.shields.io/badge/Two way-data binding-1C2149?style=for-the-badge&logo=kotlin&logoColor=orange"/>
 
-Open the starter project in Android Studio
+<img src="https://img.shields.io/badge/live-data-1C2149?style=for-the-badge&logo=google&logoColor=blue"/>  <img src="https://img.shields.io/badge/MVVM-SharedViewModel-1C2149?style=for-the-badge&logo=google&logoColor=blue"/>  <img src="https://img.shields.io/badge/Nav-Component-1C2149?style=for-the-badge&logo=google&logoColor=blue"/>  <img src="https://img.shields.io/badge/Card-View-1C2149?style=for-the-badge&logo=google&logoColor=blue"/>
 
-##Steps
+<img src="https://img.shields.io/badge/git-1C2149?style=for-the-badge&logo=github&logoColor=#181717"/>  <img src="https://img.shields.io/badge/github-1C2149?style=for-the-badge&logo=github&logoColor=#181717"/>
+ 
+<img src="https://img.shields.io/badge/Dynamic ScrollView-1C2149?style=for-the-badge&logo=ScrollReveal&logoColor=7F52FF"/>  <img src="https://img.shields.io/badge/Code generated View-1C2149?style=for-the-badge&logo=v&logoColor=7F52FF"/>  <img src="https://img.shields.io/badge/Toolbar-1C2149?style=for-the-badge&logo=Bandcamp&logoColor=7F52FF"/>  <img src="https://img.shields.io/badge/Custom registration and login-1C2149?style=for-the-badge&logo=lospec&logoColor=7F52FF"/>
 
-1. Open the starter project in Android Studio
+##
 
-2. Add the navigation libraries to the app build.gradle file
+## Project consists of five screens.
 
-3. Add the safe-arg plugin to the main and app build.gradle file
+### 1. Login screen: Email and password fields and labels plus register and login buttons
 
-4. Create a new navigation xml file
+<p align="center"><img src="https://i.postimg.cc/Wz721hGx/Screenshot-20230126-174925.png"/></p>
 
-5. Create a new Login destination.
+- Registred users are kept in SharedViewModel, without Firebase or Room, in this case it was not needed.
 
-   * Include email and password labels 
+- Login button checks if the login and password fields corresponds to some user, if that so - navigates to the welcome screen.
 
-   - Include email and password fields
-   - Create buttons for creating a new login and logging in with an existing account
-   - Clicking either button should navigate to the Welcome Screen.
+- Registration requires from the user proper e-mail format and password to be at least: 8 symbols, 1 lowercase letter, 1 uppercase letter and 1 special symbol.
 
-6. Create a new Welcome screen destination that includes:
+- Logining and registation logic is incapsulated in separate Use Cases in it's invoke() methods.
 
-   * A new layout
-   * At least 2 textviews
-   * A navigation button with actions to navigate to the instructions screen
+- It's impossible to get back to this screen using back-arrow navigation, only "logout" menu button on listing screen can do that.
 
-7. Create a new Instruction destination that includes:
+##
 
-   * A new layout
-   * At least 2 textviews
-   * A navigation button with actions to navigate to the shoe list screen
+### 2. Welcome onboarding screen
 
-8. Create a class that extends ViewModel
+<p align="center"><img src="https://i.postimg.cc/Hn6fN54W/Screenshot-20230126-174937.png"/></p>
 
-   *  Use a LiveData field that returns the list of shoes
+- The user is navigated to this screen when succesfully logged in
+- Clicking the "GO TO INSTRUCTIONS" button navigates the user to screen with instructions.
 
-9. Create a new Shoe List destination that includes:
+##
 
-   * A new layout
-   * A ScrollView
-   * A LinearLayout for Shoe Items
-   * A FloatingActionButton with an action to navigate to the shoe detail screen
+### 3. Instructions onboarding screen
 
-10. In MainActivity, setup the nav controller with the toolbar and an AppBarConfiguration.
+<p align="center"><img src="https://i.postimg.cc/G2q73RBq/Screenshot-20230126-174945.png"/></p>
 
-11. Create a new Shoe Detail destination that includes:
+- Short description of what the app does.
 
-    * A new layout
-    * A TextView label and EditView for the
-      * Shoe Name
-      * Company
-      * Shoe Size
-      * Description
-    * A Cancel button with an action to navigate back to the shoe list screen
-    * A Save button with an action to navigate back to the shoe list screen and add a new Shoe to the Shoe View Model
+##
 
-12. Make sure you can’t go back to onboarding screens
+### 4. Shoe Listing screen with log out menu button
 
-13. In the Shoe List screen:
+<p align="center"><img src="https://i.postimg.cc/PfvY5h8J/Screenshot-20230126-175158.png"/></p>
 
-    * Use an Activity level ViewModel to hold a list of Shoes (use by activityViewModels)
-    * Observe the shoes variable from the ViewModel
-    * Use DataBindingUtil to inflate the shoe_list layout
-    * Add a new layout item into the scrollview for each shoe.
+- The main screen of the app. It has pre-populated list of default shoes, if the user is new.
+  - If the user was registered before, his own list of shoes is kept in SharedViewModel.
+- The creating each CardView logic is incapsulated in separete Use Case called CreateCardViewForShoeUseCase in its invoke() method.
+- The main View to display the list of shoes was chosen as ScrollView, not RecyclerView, to practice the manual code-based generating the layout.
+- Clicking the FAB navigates the user to new screen, called ShoeDetail. 
+- The screen has logout menu button, which navigates the user back to login screen.
+
+##
+
+### 5. Shoe Detail screen for adding a new shoe
+
+<p align="center"><img src="https://i.postimg.cc/Njq4cFJQ/Screenshot-20230126-175151.png"/></p>
+
+- The user can do 2 actions: 
+  - Click the button "CANCEL" which navigates the user back to shoe listing screen.
+  - Enter the proper data for Shoe fields, such as Shoe name, size, description, manufacturer. 
+    - If one of the field is blank or incorrect, the user will see the Toast with this information.
+    - If the entered information is valid, the user clicks "CONFIRM" and is being navigated to the listing screen with new shoe added to top of the list.
+- Layout is used with two-way data binding with Static Inverse Method held in separate Use Case, which convers Double to String and String to Double.
+
+##
+
+### Navigation is organized using navGraph as follows:
+
+<p align="center"><img src="https://i.postimg.cc/Vv9Vytq0/Screenshot-2.jpg"/></p>

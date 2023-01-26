@@ -21,13 +21,13 @@ A small project to keep track of your shoes, where you keep its list and can add
 
 <p align="center"><img src="https://i.postimg.cc/Wz721hGx/Screenshot-20230126-174925.png"/></p>
 
-- Registred users are kept in SharedViewModel, without Firebase or Room, in this case it was not needed.
+- Registered users are kept in SharedViewModel, without Firebase or Room, in this case it was not needed.
 
 - Login button checks if the login and password fields corresponds to some user, if that so - navigates to the welcome screen.
 
-- Registration requires from the user proper e-mail format and password to be at least: 8 symbols, 1 lowercase letter, 1 uppercase letter and 1 special symbol.
+- Registration requires from the user proper e-mail format and password to be at least: 8 symbols, 1 lowercase letter, 1 uppercase letter and 1 special symbol, 1 digit.
 
-- Logining and registation logic is incapsulated in separate Use Cases in it's invoke() methods.
+- Logging and registration logic is encapsulated in separate Use Cases in it's invoke() methods.
 
 - It's impossible to get back to this screen using back-arrow navigation, only "logout" menu button on listing screen can do that.
 
@@ -37,7 +37,7 @@ A small project to keep track of your shoes, where you keep its list and can add
 
 <p align="center"><img src="https://i.postimg.cc/Hn6fN54W/Screenshot-20230126-174937.png"/></p>
 
-- The user is navigated to this screen when succesfully logged in
+- The user is navigated to this screen when successfully logged in
 - Clicking the "GO TO INSTRUCTIONS" button navigates the user to screen with instructions.
 
 ##
@@ -56,9 +56,9 @@ A small project to keep track of your shoes, where you keep its list and can add
 
 - The main screen of the app. It has pre-populated list of default shoes, if the user is new.
   - If the user was registered before, his own list of shoes is kept in SharedViewModel.
-- The creating each CardView logic is incapsulated in separete Use Case called CreateCardViewForShoeUseCase in its invoke() method.
+- The creating each CardView logic is encapsulated in separate Use Case called CreateCardViewForShoeUseCase in its invoke() method.
 - The main View to display the list of shoes was chosen as ScrollView, not RecyclerView, to practice the manual code-based generating the layout.
-- Clicking the FAB navigates the user to new screen, called ShoeDetail. 
+- Clicking the FAB navigates the user to a new screen, called ShoeDetail. 
 - The screen has logout menu button, which navigates the user back to login screen.
 
 ##
@@ -72,7 +72,7 @@ A small project to keep track of your shoes, where you keep its list and can add
   - Enter the proper data for Shoe fields, such as Shoe name, size, description, manufacturer. 
     - If one of the field is blank or incorrect, the user will see the Toast with this information.
     - If the entered information is valid, the user clicks "CONFIRM" and is being navigated to the listing screen with new shoe added to top of the list.
-- Layout is used with two-way data binding with Static Inverse Method held in separate Use Case, which convers Double to String and String to Double.
+- Layout is used with two-way data binding with Static Inverse Method held in separate Use Case, which converts Double to String and String to Double.
 
 ##
 
